@@ -140,6 +140,63 @@ Performance and integration challenges.
 13. Foundational Bibliography
 (Includes Frankfurt, Orwell, Wittgenstein, Grice, Kahneman, Ariely, Bergstrom/West, Bregman, Snyder, Parrish, Pennycook, Meyer, Peterson (as influence on ISI), Graeber (for context), relevant RFCs. Ensure citations are complete in a final document).
 14. Contact Information
-(Provide appropriate contact details for feedback).
+Comments on robtyrie.medium.com, www.linkedin.com/in/robtyrie or email rob@ironstoneadvisory.com
 15. Legal Framework
 (MIT License details, Disclaimers of Warranty, etc.).
+
+We set out to build a tool inspired by Harry Frankfurt's crucial distinction: bullshit isn't necessarily lying; it's talking without caring about the truth. That indifference, we feel, is the corrosive agent we're trying to detect. But why does it happen?
+
+This is where thinkers like David Graeber provide invaluable, if unsettling, context. His analysis of "Bullshit Jobs" suggests that the very structure of some modern work might compel people to generate performative communication – our "bullshit knowledge objects." While the Compass must not devolve into judging authors or their jobs (we analyze text, period), understanding Graeber helps explain why the swamp might be so deep, reinforcing the need for tools focused on the textual evidence itself.
+
+The textual evidence often manifests as the kind of linguistic decay George Orwell warned about so presciently, the sort of obfuscation that Timothy Snyder links to political degradation. Our "Orwellian Obfuscation Index" (OOI) is a direct nod to their insights – language used not to convey thought, but perhaps to prevent it.
+
+But language is slippery. Ludwig Wittgenstein taught us about "language games" – context is king. And Paul Grice showed us the unwritten rules (maxims) that make conversation work... rules that bullshit often cheerfully ignores. Our "Language Game Contextualization" (LGC) module is our attempt to wrestle with this, to avoid flagging poetry as corporate jargon, acknowledging that what counts as bullshit depends.
+
+Why do we fall for it? Daniel Kahneman's System 1 vs. System 2 model is key: bullshit often appeals to our fast, intuitive, easily-fooled System 1. The Compass aims to be a nudge, a prompt to engage the slower, more analytical System 2. Dan Ariely's work reminds us how predictably irrational our responses can be, especially to the kinds of emotional appeals the EPF indicator tries to spot.
+
+The specific types of bullshit are diverse, too. Beyond Orwellian vagueness, there's the quantitative and sciency misdirection highlighted by Carl Bergstrom & Jevin West (inspiring our experimental DPO and PRM indicators). There are the complex, sometimes ideologically loaded argument structures (which the ISI indicator, influenced by discussions around figures like Jordan Peterson, attempts to map, albeit cautiously). There's the power dynamic inherent in language itself, the way jargon can exclude or signal status, as explored in Critical Discourse Analysis by thinkers like Alistair Pennycook.
+
+So, the Compass tries to weave these threads together: Frankfurt's definition, Orwell/Snyder's warnings, Wittgenstein/Grice's contextualism, Kahneman/Ariely's cognitive insights, Bergstrom/West's focus on data, Graeber's sociological context, and the broader goal of clearer thinking championed by folks like Shane Parrish. It even considers the counter-arguments – the risk of excessive cynicism Rutger Bregman might warn against, demanding responsible use.
+
+This v0.88 is more concrete, the indicators more refined, but the core philosophy remains: this is a tool to augment human judgment, not replace it. It's about making linguistic patterns visible, prompting questions, and hopefully fostering a bit more clarity and accountability in how we use words. The challenges ahead (especially genuine cross-cultural analysis and nuanced irony detection) are significant, and the ethical guardrails (Section 10) are non-negotiable.
+
+Ultimately, the Bullshit Compass is offered in the spirit of the RFCs that built the internet: a documented attempt to solve a perceived problem, put forth for scrutiny, testing, and improvement by the community. Let the feedback continue.
+
+16. Foundational Bibliography & References
+This list includes works cited or influential in the development of the Bullshit Compass framework (v0.88).
+
+Ariely, D. (2008). Predictably irrational: The hidden forces that shape our decisions. HarperCollins.
+
+Bergstrom, C. T., & West, J. D. (2020). Calling bullshit: The art of skepticism in a data-driven world. Random House.
+
+Bregman, R. (2019). Humankind: A hopeful history. Little, Brown and Company.
+
+Cerf, V. G. (Ed.). (1975). RFC 742: Finger protocol. RFC Editor. https://www.rfc-editor.org/info/rfc742
+
+Fielding, R., Gettys, J., Mogul, J., Frystyk, H., Masinter, L., Leach, P., & Berners-Lee, T. (1999). RFC 2616: Hypertext Transfer Protocol -- HTTP/1.1. RFC Editor. https://www.rfc-editor.org/info/rfc2616 (Note: Obsoleted by RFCs 7230-7235, cited for historical context)
+
+Frankfurt, H. G. (1986). On bullshit. Raritan Quarterly Review, 6(2). (Reprinted as: Frankfurt, H. G. (2005). On bullshit. Princeton University Press.)
+
+Graeber, D. (2018). Bullshit jobs: A theory. Simon & Schuster.
+
+Grice, H. P. (1975). Logic and conversation. In P. Cole & J. L. Morgan (Eds.), Syntax and semantics, Vol. 3: Speech acts (pp. 41–58). Academic Press.
+
+Kahneman, D. (2011). Thinking, fast and slow. Farrar, Straus and Giroux.
+
+Klensin, J. C. (Ed.). (2008). RFC 5321: Simple Mail Transfer Protocol. RFC Editor. https://www.rfc-editor.org/info/rfc5321
+
+Meyer, P. (2010). Liespotting: Proven techniques to detect deception. St. Martin's Press.
+
+Orwell, G. (1946, April). Politics and the English language. Horizon.
+
+Parrish, S. (Host). (n.d.). Farnam Street Blog & The Knowledge Project Podcast. Farnam Street Media Inc. Retrieved April 1, 2025, from https://fs.blog/ (General influence cited)
+
+Pennycook, A. (2001). Critical applied linguistics: A critical introduction. Lawrence Erlbaum Associates.
+
+Peterson, J. B. (1999). Maps of meaning: The architecture of belief. Routledge. (Cited as influence)
+
+Peterson, J. B. (2018). 12 rules for life: An antidote to chaos. Random House Canada. (Cited as influence)
+
+Snyder, T. (2017). On tyranny: Twenty lessons from the twentieth century. Tim Duggan Books.
+
+Wittgenstein, L. (1953). Philosophical investigations (G. E. M. Anscombe, Trans.). Blackwell Publishing.
