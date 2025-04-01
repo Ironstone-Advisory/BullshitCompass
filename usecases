@@ -7,3 +7,53 @@ Internal Communications & Strategy Review: Evaluate internal memos, strategic pl
 AI-Generated Content Quality Control: Assess text produced by Large Language Models (LLMs) or other AI systems. While AI can generate fluent text, the Compass could help flag instances where the output is coherent but potentially vacuous, overly reliant on clichés (OOI), or exhibiting other forms of sophisticated bullshit that lack genuine meaning or grounding.
 
 Journalism & Fact-Checking Augmentation: Assist journalists or fact-checkers in analyzing political speeches, press releases, or opinion pieces. Beyond checking factual accuracy, the Compass could highlight rhetorical strategies being used, such as ambiguity (AAR), emotional manipulation (EPF), Orwellian obfuscation (OOI), or attempts to smuggle claims (ISI), providing deeper context on how a message is constructed.
+
+Insurance
+
+Policy Clarity Analysis: Scan insurance policy documents (e.g., health, auto, home) to identify ambiguous language (AAR), excessive jargon (BLI), or potentially misleading clauses that could confuse policyholders.
+
+Claims Report Review: Analyze claims adjuster notes or reports for internal review, flagging potential bias indicated by emotional language (EPF), lack of coherence (SDS), or overly vague justifications (AAR).
+
+Marketing Material Vetting: Evaluate brochures, website copy, and advertisements for exaggerated benefit claims (AAR, EPF), misleading comparisons (DPO), or buzzword overuse (BLI) that might violate fair marketing standards.
+
+Agent Training Assessment: Review training materials for insurance agents on complex products to ensure clarity, accuracy, and avoidance of obfuscatory language (OOI) or tautologies (TCR) that could lead to mis-selling.
+
+Banking
+
+Loan & Investment Document Scrutiny: Analyze loan agreements, mortgage documents, or investment prospectuses for ambiguous terms (AAR), hidden fees obscured by jargon (BLI), or downplayed risk factors (DPO).
+
+Regulatory Compliance Reporting: Review internal compliance reports or submissions to regulators for excessive vagueness (AAR), potentially meaningless "boilerplate" language (OOI, TCR), or inconsistencies (SDS).
+
+Customer Service Interaction Analysis: Assess customer service scripts, chatbot logs, or template emails for evasive language (AAR), unhelpful jargon (BLI), or overly simplistic/emotional responses (EPF) that don't address customer issues.
+
+Internal Risk & Audit Review: Examine internal risk assessment documents or audit reports for coherence (SDS), clarity of identified risks (AAR), and potential attempts to smuggle assumptions or downplay issues (ISI, OOI).
+
+Marketing
+
+Advertising Copy Effectiveness: Analyze ad copy, social media posts, and landing pages to measure the ratio of substantive claims versus buzzwords (BLI), emotional appeals (EPF), ambiguity (AAR), and empty statements (TCR).
+
+Competitive Intelligence: Evaluate competitors' marketing campaigns and public statements for potentially misleading claims, pseudoscience in product descriptions (PRM), manipulative rhetoric (EPF), or weaknesses in their messaging (AAR).
+
+Public Relations & Corporate Communications: Review press releases, speeches, and official statements for spin, euphemisms (OOI), lack of specific commitment (AAR), or attempts to deflect criticism (SDS, ISI).
+
+Content Marketing Quality Control: Assess blog posts, white papers, case studies, and e-books for genuine insight versus content primarily filled with jargon (BLI), vague assertions (AAR), and semantic drift (SDS) designed only for SEO or lead generation.
+
+Academia
+
+Research Paper Screening: Use as a tool for editors or reviewers to flag papers with potentially inflated claims of novelty/significance (AAR, BLI), jargon barriers (BLI), methodological ambiguity (AAR), or signs of pseudoscience (PRM).
+
+Grant Proposal Evaluation: Analyze grant proposals for clarity, feasibility, and justification, flagging excessive jargon (BLI), vague objectives (AAR), or potentially smuggled assumptions (ISI) that weaken the proposal.
+
+Administrative Document Review: Assess university strategic plans, committee reports, or policy documents for bureaucratic obfuscation (OOI), meaningless mission statements (TCR, BLI), or lack of clear, actionable points (AAR, SDS).
+
+Critical Reading & Writing Pedagogy: Employ as an educational tool to help students identify logical fallacies, rhetorical manipulation, ambiguity, and jargon in texts, improving their critical reading skills and encouraging clearer academic writing.
+
+Politics
+
+Speech & Debate Analysis: Analyze transcripts of political speeches, debates, or interviews to quantify the use of emotional appeals (EPF), vague promises (AAR), ideological framing (ISI), Orwellian language (OOI), and deflections (SDS).
+
+Legislative Text Review: Scan proposed bills, laws, or regulations for deliberately ambiguous phrasing (AAR), loopholes obscured by complex language (OOI), or sections lacking clear definitions or scope.
+
+Government Report Assessment: Evaluate reports from government agencies or public bodies for bureaucratic jargon (BLI, OOI), lack of transparency (AAR), selective presentation of data (DPO), or political spin.
+
+Campaign Material Analysis: Assess political campaign websites, flyers, emails, and advertisements for unsubstantiated claims (AAR), logical fallacies embedded in rhetoric (ISI), fear-mongering or tribalism (EPF), and misleading statements (OOI, DPO).
