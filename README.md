@@ -69,3 +69,45 @@ This project is currently **experimental**. The specifications are drafts, and t
 ```bash
 # Example (placeholder):
 # pip install bullshit-compass
+
+# Example (placeholder):
+# from bullshit_compass import assess
+#
+# text = "We are leveraging synergistic paradigms to actualize next-generation value-added solutions..."
+# score, analysis = assess(text)
+# print(f"Bullshit Score: {score}")
+# print(analysis)
+
+Specification-Driven Development
+This project is committed to a spec-first development process. Please refer to the /spec directory for the governing RFC documents:
+
+RFC FS01: Fingerprint Spider
+RFC FS02: The Bullshit Compass
+Discussions, critiques, and suggestions regarding the specifications themselves are highly encouraged via GitHub Issues, tagged with spec-discussion or rfc-feedback.
+
+Contributing
+We welcome contributions! Please read our CONTRIBUTING.md guidelines to understand how you can participate, report issues, suggest features, and submit pull requests.
+
+Please also adhere to our CODE_OF_CONDUCT.md.
+
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+(Replace MIT License and link if you chose a different one)
+
+Acknowledgements & References
+This work builds upon ideas from various fields and prior art:
+
+Early Internet RFCs (e.g., RFC 5321, RFC 2616, RFC 742)
+Frankfurt, H. (1986). On Bullshit.
+Pennycook, G., et al. (on the reception and detection of pseudo-profound bullshit)
+Salton, G., et al. (Vector Space Model)
+The general spirit of Open Source development.
+Initial feedback from @ruv (as mentioned in the original post).
+Request for Comments! 😁🧠🤖👾👨‍⚖️👍🤯🎲🪙🃏🙊🙉🙈❤️
+What are your thoughts? We believe this way leads to clarity, to integrity—and maybe even to less bullshit.
+
+Open an Issue to share your feedback, critique the specifications, or discuss the underlying philosophy.
+
+
+
