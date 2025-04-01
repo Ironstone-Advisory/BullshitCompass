@@ -1,0 +1,85 @@
+# Bullshit Compass – Interface and Visualization Mockup
+
+## Overview
+This document describes a conceptual mockup for a **multi-layered user interface** for the Bullshit Compass, combining textual analysis, interactive sliders, and a global visual dashboard styled after the **Johns Hopkins COVID-19 map**, reimagined as a **"Bullshit GlobeScope."**
+
+---
+
+## Level 1 – High-Level Summary View
+
+### Components:
+- **Document Upload or URL Input**
+- **Composite Bullshit Score Meter** (0–100 scale, color coded)
+- **Mini-Radar Chart** with 7 or 8 wedges (1 per sub-index)
+- **Document Flag Summary** (number and type of rhetorical issues detected)
+- **Quick Verdict** (e.g., "⚠️ High Manipulative Risk", "✅ Mostly Clean")
+
+### User Controls:
+- File input or live doc link
+- Toggle for: "Run Basic Scan" vs. "Run Deep Semantic Scan"
+
+---
+
+## Level 2 – Interactive Analysis Panel
+
+### Components:
+- **Expandable Radar Chart** (click wedges for detail)
+- **Sentence-Level Annotation Viewer**
+  - Highlighted text colored by type (e.g., yellow = tautology, red = pseudoscience)
+  - Popovers show score and rationale
+- **Sub-score Sliders for Sensitivity Adjustment**
+  - Adjust detection thresholds per signal (e.g., more strict buzzword detection)
+  - Example slider labels:
+    - TCR (Tautology Strictness)
+    - PWI (Ideological Inference Sensitivity)
+    - SDS (Drift Radius in Tokens or Sentences)
+
+### User Actions:
+- Click any radar axis → filters flagged sentences
+- Download annotated document (PDF, .docx, JSON)
+- Compare to baseline corpus (e.g., "Clean Report Benchmarks")
+
+---
+
+## Level 3 – Bullshit GlobeScope
+
+### Dashboard Overview:
+- Interactive World Map (D3.js / WebGL based)
+- **Country-level bullshit detection heatmap**
+  - Real-time data collected from flagged documents globally (using opt-in Finger Spider crawlers)
+- Filterable by:
+  - Document type (press releases, research, marketing, AI-generated)
+  - Source (corporate, government, anonymous)
+  - Date range
+
+### GlobeScope Metrics:
+- "Average National Bullshit Index"
+- Top 10 Rhetorical Offenders (regions + document clusters)
+- Trending Buzzwords and Pseudoscientific Terms
+- Daily/weekly changes in composite scores
+
+---
+
+## Future Layer: OrgView + Context Replayer
+- **Organizational view** for internal documents scored over time
+- **Replay mode** for seeing how a document's bullshit footprint evolves through drafts
+- Enable traceability for misinformation compliance, editorial coaching, or audit trails
+
+---
+
+## Visual Style References
+- Color palette: Adaptive from red (high bullshit) to blue (neutral) to green (clean)
+- UI inspiration: John Hopkins COVID Dashboard, Nightingale visual essays, NYT scrollytelling interfaces
+
+---
+
+## Purpose
+This mockup enables both individual users and enterprise/institutional analysts to:
+- Get fast bullshit assessments
+- Dig into document semantics with transparency
+- Observe large-scale bullshit patterns across domains and geographies
+
+---
+
+**Built on Finger Spider. Powered by the Compass. For a clearer narrative world.**
+
