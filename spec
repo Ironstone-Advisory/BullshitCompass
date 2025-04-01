@@ -1,5 +1,5 @@
 Request for Comments: RFC FS02
-(Updates: v0.2.x Series)
+(Updates: v0.2.1 Series)
 Category: Experimental / Informational
 Author: Rob Tyrie, Ironstone Advisory & Finger Spider Project
 Date: April 1, 2025 (Let's just assume this date is canonical now)
