@@ -1,0 +1,295 @@
+import re
+import nltk
+from nltk.corpus import stopwords
+from collections import Counter
+import spacy
+from textstat.textstat import textstat
+import pandas as pd
+import numpy as np
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+class BullshitCompass:
+    """
+    Implementation of the Bullshit Compass (RFC FS02) for detecting linguistic fog
+    in business and corporate communications.
+    """
+    
+    def __init__(self):
+        # Initialize NLP tools
+        self.nlp = spacy.load("en_core_web_lg")
+        self.stop_words = set(stopwords.words('english'))
+        
+        # Load jargon and buzzword dictionaries
+        self.business_jargon = self._load_business_jargon()
+        
+        # Weights for different bullshit indicators
+        self.weights = {
+            'tautology': 0.2,
+            'jargon_density': 0.25,
+            'vagueness': 0.2,
+            'peterson_weakness': 0.15,
+            'semantic_emptiness': 0.2
+        }
+    
+    def _load_business_jargon(self):
+        """Load business jargon and buzzwords from external source or hardcode common ones"""
+        # In a real implementation, this would load from a well-curated file
+        return set([
+            "synergy", "leverage", "paradigm", "disrupt", "innovate", "optimize",
+            "actionable", "scalable", "solution", "best-in-class", "ecosystem",
+            "value-add", "pivot", "best practice", "thought leader", "synergistic",
+            "value proposition", "bleeding edge", "change agent", "circle back",
+            "deep dive", "drill down", "low-hanging fruit", "move the needle"
+        ])
+    
+    def detect_tautologies(self, text):
+        """
+        Detect instances of saying the same thing twice in different words.
+        Uses semantic similarity to find redundant statements.
+        """
+        doc = self.nlp(text)
+        sentences = list(doc.sents)
+        
+        tautology_score = 0
+        tautology_examples = []
+        
+        # Compare each sentence with every other sentence for semantic similarity
+        for i in range(len(sentences)):
+            for j in range(i+1, len(sentences)):
+                similarity = sentences[i].similarity(sentences[j])
+                
+                # If sentences are very similar but not identical
+                if similarity > 0.8 and similarity < 0.95:
+                    tautology_score += similarity - 0.8
+                    tautology_examples.append((str(sentences[i]), str(sentences[j]), similarity))
+        
+        # Normalize score
+        if len(sentences) > 1:
+            tautology_score = min(1.0, tautology_score / (len(sentences) * 0.2))
+        
+        return {
+            'score': tautology_score,
+            'examples': tautology_examples[:3]  # Return top 3 examples
+        }
+    
+    def measure_jargon_density(self, text):
+        """
+        Measure the density of business jargon and buzzwords in the text.
+        """
+        words = re.findall(r'\b\w+\b', text.lower())
+        total_words = len(words)
+        
+        # Count jargon words and phrases
+        jargon_count = 0
+        jargon_instances = []
+        
+        for word in words:
+            if word in self.business_jargon:
+                jargon_count += 1
+                jargon_instances.append(word)
+        
+        # Check for multi-word jargon phrases
+        for phrase in self.business_jargon:
+            if ' ' in phrase and phrase.lower() in text.lower():
+                jargon_count += 1
+                jargon_instances.append(phrase)
+        
+        # Calculate density
+        density = jargon_count / max(1, total_words)
+        
+        # Apply a sigmoid-like function to emphasize high densities
+        score = 2 / (1 + np.exp(-10 * (density - 0.05))) - 1
+        score = max(0, min(1, score))
+        
+        return {
+            'score': score,
+            'jargon_count': jargon_count,
+            'examples': Counter(jargon_instances).most_common(5)
+        }
+    
+    def analyze_vagueness(self, text):
+        """
+        Analyze text for vagueness and ambiguity.
+        """
+        doc = self.nlp(text)
+        vague_indicators = {
+            'hedge_words': ["may", "might", "could", "possibly", "perhaps", "somewhat", 
+                           "sort of", "kind of", "in a way", "more or less"],
+            'weak_verbs': ["do", "have", "be", "get", "make", "put", "take"],
+            'abstract_nouns': ["thing", "aspect", "factor", "element", "issue", "matter", "situation"]
+        }
+        
+        # Count vague terms
+        vagueness_count = 0
+        vague_examples = []
+        
+        # Check for hedge words
+        for hedge in vague_indicators['hedge_words']:
+            if f" {hedge} " in f" {text} ":
+                vagueness_count += 1
+                vague_examples.append(("hedge", hedge))
+        
+        # Check for excessive weak verbs
+        for token in doc:
+            if token.pos_ == "VERB" and token.lemma_.lower() in vague_indicators['weak_verbs']:
+                vagueness_count += 0.5
+                vague_examples.append(("weak verb", token.text))
+        
+        # Check for abstract nouns
+        for token in doc:
+            if token.pos_ == "NOUN" and token.lemma_.lower() in vague_indicators['abstract_nouns']:
+                vagueness_count += 0.7
+                vague_examples.append(("abstract noun", token.text))
+        
+        # Count concrete entities as a positive factor
+        named_entities = len([ent for ent in doc.ents])
+        specificity_bonus = min(0.5, named_entities / 10)
+        
+        # Calculate normalized score
+        words = len([token for token in doc])
+        vagueness_score = min(1.0, vagueness_count / max(1, words / 10))
+        vagueness_score = max(0, vagueness_score - specificity_bonus)
+        
+        return {
+            'score': vagueness_score,
+            'examples': vague_examples[:5]
+        }
+    
+    def detect_peterson_weakness(self, text):
+        """
+        Detect camouflaged tautologies combined with ideological injections.
+        Named after the "Peterson Weakness" mentioned in the RFC.
+        """
+        doc = self.nlp(text)
+        
+        # Detect normative statements with little factual backing
+        normative_phrases = ["should be", "must be", "ought to", "have to", 
+                            "clearly", "obviously", "naturally", "of course"]
+        
+        normative_count = 0
+        for phrase in normative_phrases:
+            if f" {phrase} " in f" {text.lower()} ":
+                normative_count += 1
+        
+        # Look for tautological structures
+        tautological_patterns = [
+            r"([\w\s]+) because ([\w\s]+)",  # Look for circular reasoning
+            r"([\w\s]+) is ([\w\s]+) because ([\w\s]+)"
+        ]
+        
+        tautology_count = 0
+        for pattern in tautological_patterns:
+            matches = re.findall(pattern, text)
+            tautology_count += len(matches)
+        
+        # Calculate score based on normative statements and potential tautologies
+        score = min(1.0, (normative_count * 0.15 + tautology_count * 0.25))
+        
+        return {
+            'score': score,
+            'normative_count': normative_count,
+            'tautology_count': tautology_count
+        }
+    
+    def measure_semantic_emptiness(self, text):
+        """
+        Measure semantic emptiness - sentences that sound good but convey little information.
+        """
+        doc = self.nlp(text)
+        sentences = list(doc.sents)
+        
+        # Metrics for semantic emptiness
+        avg_sentence_length = sum(len(sentence) for sentence in sentences) / max(1, len(sentences))
+        readability = textstat.flesch_reading_ease(text)
+        
+        # Use TF-IDF to measure information content
+        vectorizer = TfidfVectorizer(min_df=1, stop_words='english')
+        try:
+            sentence_vectors = vectorizer.fit_transform([str(sent) for sent in sentences])
+            avg_tfidf = sentence_vectors.mean()
+        except:
+            avg_tfidf = 0
+        
+        # Long, readable sentences with low information density suggest emptiness
+        if avg_sentence_length > 15 and readability > 60 and avg_tfidf < 0.2:
+            emptiness_score = 0.7
+        elif avg_sentence_length > 20 and avg_tfidf < 0.15:
+            emptiness_score = 0.9
+        else:
+            emptiness_score = min(1.0, (20 - avg_tfidf * 100) / 20)
+        
+        emptiness_score = max(0, min(1.0, emptiness_score))
+        
+        return {
+            'score': emptiness_score,
+            'avg_sentence_length': avg_sentence_length,
+            'readability': readability,
+            'information_density': float(avg_tfidf)
+        }
+    
+    def calculate_bullshit_index(self, text):
+        """
+        Calculate the overall Bullshit Index for the given text based on weighted metrics.
+        """
+        # Calculate individual metrics
+        tautology = self.detect_tautologies(text)
+        jargon = self.measure_jargon_density(text)
+        vagueness = self.analyze_vagueness(text)
+        peterson = self.detect_peterson_weakness(text)
+        emptiness = self.measure_semantic_emptiness(text)
+        
+        # Calculate weighted score
+        bs_score = (
+            self.weights['tautology'] * tautology['score'] +
+            self.weights['jargon_density'] * jargon['score'] +
+            self.weights['vagueness'] * vagueness['score'] +
+            self.weights['peterson_weakness'] * peterson['score'] +
+            self.weights['semantic_emptiness'] * emptiness['score']
+        )
+        
+        # Prepare detailed analysis
+        analysis = {
+            'overall_score': bs_score,
+            'interpretation': self._interpret_score(bs_score),
+            'components': {
+                'tautology': tautology,
+                'jargon_density': jargon,
+                'vagueness': vagueness,
+                'peterson_weakness': peterson,
+                'semantic_emptiness': emptiness
+            }
+        }
+        
+        return bs_score, analysis
+    
+    def _interpret_score(self, score):
+        """Provide a qualitative interpretation of the bullshit score"""
+        if score < 0.2:
+            return "Clear and substantive communication"
+        elif score < 0.4:
+            return "Generally clear with occasional fluff"
+        elif score < 0.6:
+            return "Moderate bullshit levels - could be more concrete"
+        elif score < 0.8:
+            return "High bullshit content - lacks substance"
+        else:
+            return "Extreme bullshit - almost entirely devoid of meaning"
+
+# Example usage
+if __name__ == "__main__":
+    compass = BullshitCompass()
+    
+    # Sample text with varying bullshit levels
+    texts = [
+        "We are leveraging synergistic paradigms to actualize next-generation value-added solutions.",
+        "We're building software that helps companies identify marketing opportunities.",
+        "The project deadline is May 15th. We need to deliver the database migration and API endpoints by then."
+    ]
+    
+    for idx, text in enumerate(texts):
+        score, analysis = compass.calculate_bullshit_index(text)
+        print(f"\nText {idx+1}:")
+        print(f"Bullshit Score: {score:.2f} - {analysis['interpretation']}")
+        print("Component Scores:")
+        for component, details in analysis['components'].items():
+            print(f"  - {component}: {details['score']:.2f}")
