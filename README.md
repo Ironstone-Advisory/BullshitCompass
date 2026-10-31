@@ -1,5 +1,8 @@
 > **Version 1 (April 2025 to September 2026).** Active development continues in [bullshit-compass-v2](https://github.com/Ironstone-Advisory/bullshit-compass-v2), which inherits this repo's specs, code and commit history. This repo stays as the record of v1 and takes updates only for work from before September 2026.
 
+> **Provenance addendum (31 October 2026):** the dates above describe this repository record. Earlier development, the Frankfurt/Pennycook/Graeber influences, and Rob Tyrie's original Peterson-derived measure are documented in [HISTORY-ADDENDUM.md](HISTORY-ADDENDUM.md). The original v1 specifications and code remain preserved.
+
+
 # BullshitCompass
 The Bullshit Compass project aims to create software that identifies vague, fluffy, syntactically correct but meaningless language ("bullshit") in business texts like memos and pitch decks. Distinct from detecting lies, it focuses on linguistic fog. Development started spec-first (RFC FS02) due to the concept's complexity.
 # The Bullshit Compass 🧭
