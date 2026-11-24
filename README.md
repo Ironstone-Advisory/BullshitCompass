@@ -9,7 +9,7 @@ The Bullshit Compass project aims to create software that identifies vague, fluf
 
 **Detecting the Fluffy, Plausible Fog: A Spec-First Approach to Linguistic Clarity**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Status: Experimental](https://img.shields.io/badge/status-experimental-red.svg)](./spec/FS02_Bullshit_Compass.md) ---
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Docs: CC BY 4.0](https://img.shields.io/badge/Docs-CC%20BY%204.0-lightgrey.svg)](./LICENSE-docs) [![Status: Experimental](https://img.shields.io/badge/status-experimental-red.svg)](./spec/FS02_Bullshit_Compass.md) ---
 
 > *"Back in the early internet days... there was this beautifully nerdy ritual called writing an RFC... They were born as documents... Because once you’ve got a solid spec, the code becomes the easy part. (Roughly speaking.)"*
 
@@ -96,9 +96,12 @@ We welcome contributions! Please read our CONTRIBUTING.md guidelines to understa
 Please also adhere to our CODE_OF_CONDUCT.md.
 
 License
-This project is licensed under the MIT License. See the LICENSE file for details.
+The Bullshit Compass is under two licenses. Both are held by Ironstone Advisory.
 
-(Replace MIT License and link if you chose a different one)
+- Method documents: CC BY 4.0 (see LICENSE-docs). This covers the RFC FS02 PDF, spec/, spec-original/, docs/, usecases/ and the Markdown files in this repo. Share and adapt them freely; credit "Rob Tyrie, Ironstone Advisory".
+- Code and data: MIT (see LICENSE). This covers everything else, including the code, tests, prompts, calibration and evaluation data.
+
+Copies of the method documents taken before November 23, 2026 were published under MIT and stay usable under MIT.
 
 Acknowledgements & References
 This work builds upon ideas from various fields and prior art:
