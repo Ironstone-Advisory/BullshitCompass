@@ -98,8 +98,8 @@ Please also adhere to our CODE_OF_CONDUCT.md.
 License
 The Bullshit Compass is under two licenses. Both are held by Ironstone Advisory.
 
-- Method documents: CC BY 4.0 (see LICENSE-docs). This covers the RFC FS02 PDF, spec/, spec-original/, docs/, usecases/ and the Markdown files in this repo. Share and adapt them freely; credit "Rob Tyrie, Ironstone Advisory".
-- Code and data: MIT (see LICENSE). This covers everything else, including the code, tests, prompts, calibration and evaluation data.
+- Method documents: CC BY 4.0 (see LICENSE-docs). This covers the RFC FS02 PDF, spec/, spec-original/, usecases/ and the Markdown files in this repo. Share and adapt them freely; credit "Rob Tyrie, Ironstone Advisory".
+- Code and data: MIT (see LICENSE). This covers everything else, including the code.
 
 Copies of the method documents taken before November 23, 2026 were published under MIT and stay usable under MIT.
 
